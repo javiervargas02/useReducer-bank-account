@@ -25,7 +25,7 @@ export default function Amounts({ dispatch, state }) {
         value={state.loanAmount}
         dispatch={dispatch}
         error={state.loanError}
-        disabled={state.account === "closed"}
+        disabled={state.account === "closed" || state.loan > 0}
       />
     </div>
   );
