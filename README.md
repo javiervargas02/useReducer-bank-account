@@ -37,13 +37,13 @@ The application models the following state transitions:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/javiervargas02/useReducer-bank-account.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd your-repo-name
+   useReducer-bank-account
    ```
 
 3. Install dependencies:
@@ -56,13 +56,3 @@ The application models the following state transitions:
    ```bash
    npm start
    ```
-
-## Future Improvements
-
-- Adding error handling for invalid operations.
-- Enhancing the UI to provide real-time feedback to users.
-- Implementing additional features like overdraft protection or savings accounts.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
