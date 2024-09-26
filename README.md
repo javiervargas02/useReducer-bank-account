@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Bank Account State Management with `useReducer`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This project is a simplified implementation of a bank account system using React's `useReducer` hook. The main goal is to demonstrate state management through various account operations such as opening an account, depositing money, withdrawing funds, requesting a loan, paying off a loan, and closing the account.
 
-In the project directory, you can run:
+The project simulates how a bank account works by modeling transitions and constraints through a reducer function, adhering to specific business logic and conditions.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Open Account:** Users can open an account with an initial deposit of at least $500. The account becomes active once opened.
+- **Deposit:** Users can deposit funds if the account is active.
+- **Withdraw:** Users can withdraw money if the account is active.
+- **Request Loan:** Users can request a loan if no loan is currently active. The loan amount is added to the account balance.
+- **Pay Loan:** Users can pay off an active loan. The loan amount is subtracted from the balance.
+- **Close Account:** The account can only be closed if there is no active loan and the balance is zero. Closing the account deactivates it and resets the state to the initial values.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## State Transitions
 
-### `npm test`
+The application models the following state transitions:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **`openAccount`**: Activates the account with a minimum balance of $500.
+2. **`deposit`**: Adds funds to the account.
+3. **`withdraw`**: Removes funds from the account.
+4. **`requestLoan`**: Adds the loan amount to the balance if no active loan exists.
+5. **`payLoan`**: Subtracts the loan amount from the balance and sets the loan state back to zero.
+6. **`closeAccount`**: Deactivates the account, resets the state, and withdraws all remaining funds if no loan is active and the balance is zero.
 
-### `npm run build`
+## Business Logic
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Account Activation:** All actions, except for opening the account, can only be performed if the account is active.
+- **Loan Management:** A loan can only be requested if there is no active loan. Paying off a loan will reduce the balance, and loans must be paid off before the account can be closed.
+- **Account Closure:** The account can only be closed if there are no active loans and the balance is zero.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Run
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone this repository:
 
-### `npm run eject`
+   ```bash
+   git clone https://github.com/yourusername/your-repo-name.git
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Navigate to the project directory:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   cd your-repo-name
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Install dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm install
+   ```
 
-## Learn More
+4. Start the development server:
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Future Improvements
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Adding error handling for invalid operations.
+- Enhancing the UI to provide real-time feedback to users.
+- Implementing additional features like overdraft protection or savings accounts.
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
