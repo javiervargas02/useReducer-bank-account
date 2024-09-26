@@ -10,10 +10,7 @@ const initialState = {
 };
 
 export default function Main() {
-  const [{ balance, loan, account }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ balance, loan, account }, dispatch] = useReducer( reducer, initialState );
   return (
     <main className="w-full flex flex-col space-y-4 md:max-w-xl md:mx-auto">
       <AccountInformation balance={balance} loan={loan} />
