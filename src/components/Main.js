@@ -18,6 +18,7 @@ const initialState = {
 
 export default function Main() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
   const {
     balance,
     loan,
@@ -29,6 +30,7 @@ export default function Main() {
     loanError,
     withdrawError,
   } = state;
+
   return (
     <main className="w-full flex flex-col space-y-4 md:max-w-xl md:mx-auto">
       <Amounts dispatch={dispatch} state={state} />
